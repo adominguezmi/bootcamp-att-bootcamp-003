@@ -18,4 +18,11 @@ class TaxCalculatorTest {
         assertEquals(16.0, ivaCalculado, DELTA);
     }
 
- }
+    @Test
+    void shouldReturnZeroWhenPriceIsMinorOrEqulalsThanZero() {
+        TaxCalculator calculator = new TaxCalculator(DELTA);
+        assertEquals(0, calculator.calculateIva(0.00));
+        assertEquals(0, calculator.calculateIva(-10.00));
+    }
+}
+
